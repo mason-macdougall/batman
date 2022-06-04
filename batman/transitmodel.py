@@ -99,7 +99,7 @@ class TransitModel(object):
 		self.per = params.per
 		self.rp = np.abs(params.rp)
 		self.b = params.b
-    self.T14 = params.T14
+    		self.T14 = params.T14
 		self.ecc = params.ecc
 		self.w = params.w
 		self.u = params.u
