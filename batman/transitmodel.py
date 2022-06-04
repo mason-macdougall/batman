@@ -361,7 +361,7 @@ class TransitParams(object):
 	>>> params.t0 = 0. 				#time of inferior conjunction
 	>>> params.per = 1.				#orbital period	
 	>>> params.rp = 0.1				#planet radius (in units of stellar radii)
-	>>> params.T14 = 0.01				#transit duration (in same units as period)
+	>>> params.T14 = 0.1				#transit duration (in same units as period)
 	>>> params.b = 0.5				#impact parameter
 	>>> params.ecc = 0.				#eccentricity	[fixed]
 	>>> params.w = 90.				#longitude of periastron (in degrees) [fixed]
