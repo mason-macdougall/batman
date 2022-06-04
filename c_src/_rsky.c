@@ -72,7 +72,7 @@ static PyObject *_rsky_or_f(PyObject *self, PyObject *args, int f_only)
 	npy_intp dims[1];
 	PyArrayObject *ts, *ds;
 
-  	if(!PyArg_ParseTuple(args,"Oddddddii", &ts, &tc, &per, &T14, &b, &rp, &ecc, &omega, &transittype, &nthreads)) return NULL;
+  	if(!PyArg_ParseTuple(args,"Odddddddii", &ts, &tc, &per, &T14, &b, &rp, &ecc, &omega, &transittype, &nthreads)) return NULL;
 
 	double ecc_factor, g, inc_inv_factor;
 	ecc_factor = (1. + ecc*sin(omega))/(1. - ecc*ecc);
