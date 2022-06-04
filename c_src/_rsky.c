@@ -74,15 +74,15 @@ static PyObject *_rsky_or_f(PyObject *self, PyObject *args, int f_only)
 
   	if(!PyArg_ParseTuple(args,"Oddddddii", &ts, &tc, &per, &T14, &b, &rp, &ecc, &omega, &transittype, &nthreads)) return NULL;
 
-  double ecc_factor, g, inc_inv_factor;
-  ecc_factor = (1. + ecc*sin(omega * M_PI/180.))/(1. - ecc*ecc);
-  g = 1./ecc_factor;
-  double orp = 1. + rp;
-  double sinphi = sin(T14*M_PI/per * sqrt(1.-ecc*ecc)/(g*g))
-  a = 1./g*sqrt((orp*orp-b*b)/(sinphi*sinphi) + (b*b));
-    
-  inc_inv_factor = (b/a)*ecc_factor
-  inc = acos(b/a * 1./g)
+	double ecc_factor, g, inc_inv_factor;
+	ecc_factor = (1. + ecc*sin(omega * M_PI/180.))/(1. - ecc*ecc);
+	g = 1./ecc_factor;
+	double orp = 1. + rp;
+	double sinphi = sin(T14*M_PI/per * sqrt(1.-ecc*ecc)/(g*g))
+	a = 1./g*sqrt((orp*orp-b*b)/(sinphi*sinphi) + (b*b));
+
+	inc_inv_factor = (b/a)*ecc_factor
+	inc = acos(b/a * 1./g)
   
 	dims[0] = PyArray_DIMS(ts)[0];
 	ds = (PyArrayObject *) PyArray_SimpleNew(1, dims, PyArray_TYPE(ts));
