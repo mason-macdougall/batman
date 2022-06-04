@@ -36,8 +36,8 @@ def test():
 	params.t0 = 0.
 	params.per = 1.0
 	params.rp = 0.1
-	params.a = 15.0
-	params.inc = 90.
+	params.T14 = 0.1
+	params.b = 0.
 	params.ecc = 0.
 	params.w = 90. 
 	t = np.linspace(-0.01, 0.01, 1000)
