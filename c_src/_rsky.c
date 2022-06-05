@@ -134,7 +134,7 @@ static PyObject *_rsky_or_f(PyObject *self, PyObject *args, int f_only)
 			M = E - ecc*sin(E);
 		}
 
-		double tp = tc - per*M/2./M_PI;							//time of periastron
+		double tp = tc - M / (2.*M_PI/per) 							//time of periastron per*M/2./M_PI;
 
 		if(ecc < 1.0e-5)
 		{
@@ -153,7 +153,7 @@ static PyObject *_rsky_or_f(PyObject *self, PyObject *args, int f_only)
 			double d;
 			if (transittype == 1 && sin(f + omega)*sin(inc) <= 0.) d = BIGD; //z < 0, so d is set to large value in order to not model primary transit during secondary eclipse
 			else if (transittype == 2 && sin(f + omega)*sin(inc) >= 0.) d = BIGD; //z > 0, so d is set to large value in order not to model secondary eclipse during primary transit
-			else d = a*(1.0 - ecc*ecc)/(1.0 + ecc*cos(f))*sqrt(1.0 - sin(omega + f)*sin(omega + f)*sin(inc)*sin(inc));	//calculates separation of centers
+			else d = a;	//calculates separation of centers *(1.0 - ecc*ecc)/(1.0 + ecc*cos(f))*sqrt(1.0 - sin(omega + f)*sin(omega + f)*sin(inc)*sin(inc))
 			output_array[i] = d;
 		}
 
