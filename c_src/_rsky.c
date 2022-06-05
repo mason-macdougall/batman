@@ -85,6 +85,8 @@ static PyObject *_rsky_or_f(PyObject *self, PyObject *args, int f_only)
 	inc_inv_factor = (b/a)*ecc_factor;
 	inc = acos(b/a * 1./g);
 	*/
+	ecc = 0.
+	omega = M_PI/2.
 	
 	double cosphi, sinphi, orp;
 	orp = 1. + rp;
@@ -153,7 +155,7 @@ static PyObject *_rsky_or_f(PyObject *self, PyObject *args, int f_only)
 			double d;
 			if (transittype == 1 && sin(f + omega)*sin(inc) <= 0.) d = BIGD; //z < 0, so d is set to large value in order to not model primary transit during secondary eclipse
 			else if (transittype == 2 && sin(f + omega)*sin(inc) >= 0.) d = BIGD; //z > 0, so d is set to large value in order not to model secondary eclipse during primary transit
-			else d = a;	//calculates separation of centers *(1.0 - ecc*ecc)/(1.0 + ecc*cos(f))*sqrt(1.0 - sin(omega + f)*sin(omega + f)*sin(inc)*sin(inc))
+			else d = a*(1.0 - ecc*ecc)/(1.0 + ecc*cos(f))*sqrt(1.0 - sin(omega + f)*sin(omega + f)*sin(inc)*sin(inc));	//calculates separation of centers
 			output_array[i] = d;
 		}
 
