@@ -85,8 +85,8 @@ static PyObject *_rsky_or_f(PyObject *self, PyObject *args, int f_only)
 	inc_inv_factor = (b/a)*ecc_factor;
 	inc = acos(b/a * 1./g);
 	*/
-	ecc = 0.
-	omega = M_PI/2.
+	ecc = 0.;
+	omega = M_PI/2.;
 	
 	double cosphi, sinphi, orp;
 	orp = 1. + rp;
