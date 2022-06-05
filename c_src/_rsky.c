@@ -83,17 +83,7 @@ static PyObject *_rsky_or_f(PyObject *self, PyObject *args, int f_only)
 
 	inc_inv_factor = (b/a)*ecc_factor;
 	inc = acos(b/a * 1./g);
-
-	/*
-	ecc = 0.;
-	omega = M_PI/2.;
-	double cosphi, sinphi, orp;
-	orp = 1. + rp;
-	cosphi = cos(T14*M_PI/per);
-	sinphi = sin(T14*M_PI/per);
-	a = sqrt((orp*orp-b*b*cosphi*cosphi))/sinphi;
-	inc = acos(b/a);
-	*/
+	
 	
 	dims[0] = PyArray_DIMS(ts)[0];
 	ds = (PyArrayObject *) PyArray_SimpleNew(1, dims, PyArray_TYPE(ts));
@@ -136,7 +126,7 @@ static PyObject *_rsky_or_f(PyObject *self, PyObject *args, int f_only)
 			M = E - ecc*sin(E);
 		}
 
-		double tp = tc - M / (2.*M_PI/per); 							//time of periastron per*M/2./M_PI;
+		double tp = tc - per*M/2./M_PI;							//time of periastron
 
 		if(ecc < 1.0e-5)
 		{
