@@ -134,7 +134,7 @@ static PyObject *_rsky_or_f(PyObject *self, PyObject *args, int f_only)
 			M = E - ecc*sin(E);
 		}
 
-		double tp = tc - M / (2.*M_PI/per) 							//time of periastron per*M/2./M_PI;
+		double tp = tc - M / (2.*M_PI/per); 							//time of periastron per*M/2./M_PI;
 
 		if(ecc < 1.0e-5)
 		{
