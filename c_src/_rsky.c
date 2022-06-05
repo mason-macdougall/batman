@@ -82,7 +82,7 @@ static PyObject *_rsky_or_f(PyObject *self, PyObject *args, int f_only)
 	a = 1./g*sqrt((orp*orp-b*b)/(sinphi*sinphi) + (b*b));
 
 	inc_inv_factor = (b/a)*ecc_factor;
-	inc = acos(b/a * 1./g) * M_PI/180.;
+	inc = (90.-acos(b/a * 1./g)) * M_PI/180.;
   
 	dims[0] = PyArray_DIMS(ts)[0];
 	ds = (PyArrayObject *) PyArray_SimpleNew(1, dims, PyArray_TYPE(ts));
