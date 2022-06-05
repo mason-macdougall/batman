@@ -86,7 +86,8 @@ static PyObject *_rsky_or_f(PyObject *self, PyObject *args, int f_only)
 	inc = acos(b/a * 1./g);
 	*/
 	
-	double cosphi, sinphi;
+	double cosphi, sinphi, orp;
+	orp = 1. + rp;
 	cosphi = cos(T14*M_PI/per);
 	sinphi = sin(T14*M_PI/per);
 	a = sqrt((orp*orp-b*b*cosphi*cosphi))/sinphi;
